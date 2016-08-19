@@ -69,4 +69,15 @@ Currently I do not have the technical capability to add this functionality, but 
 - The cat destination is where the player clicks on the screen
 - The cat speed will move in a linear fashion, on an arc trajectory
 - When the cat reaches its target and they collide, the player gains a score
-- As the game advances, the speed the politicians appear at increases
+- As the game advances, the speed the politicians appear at increases, and therefore could have a number of politicians flying across the screen at the same time
+
+
+##Notes
+- Cartoon of politician faces > or GIFs.
+- Make whole window look like newspaper, window where game is.
+- Step 1: .Animate method in jQuery. Manipulate the css with Jquery.
+	* can move the element across the page with jQuery by continuously looping and adding 10px to the left/right of the element.
+- Step 2: make sure you can get the collision detection to work.
+- Shrink element as it moves away (for the cat).
+- Random animnation on direction of element when it.
+- Refresh position on page every 10ms to see if location is the same for 2 elements.
