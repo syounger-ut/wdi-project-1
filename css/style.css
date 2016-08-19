@@ -1,3 +1,70 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Kaushan Script', cursive;
+}
+
 body {
-  background: green;
+  background-color: #114800;
+}
+
+ul {
+  float: right;
+}
+
+li {
+  display: inline-block;
+  font-size: 25px;
+  padding: 10px;
+}
+
+li:hover {
+  background-color: blue;
+}
+
+h1 {
+  padding: 100px 0 25px 0;
+  font-size: 50px;
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+}
+
+h2 {
+  padding: 10px;
+  font-size: 25px;
+}
+
+.politician-container {
+  width: 440px;
+  height: 370px;
+  background-color: #102809;
+  border-radius: 10px;
+  margin: 50px auto 0;
+}
+
+.politicianOne, .politicianTwo {
+  width: 200px;
+  height: 300px;
+  background-color: #102809;
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+}
+
+#politicianOne, #politicianTwo {
+  width: 200px;
+  height: 25px;
+  background-color: #550000;
+  border: none;
+  margin: 10px;
+  float: left;
+  font-size: 15px;
+}
+
+img {
+  width: 200px;
+  height: auto;
 }
