@@ -109,6 +109,7 @@ img {
 /*===============================================*/
 /*Moving politician element on page*/
 #politician {
+  position: absolute;
   /*left: 0%;
   bottom: 80%;*/
   width: 50px;
@@ -154,35 +155,5 @@ img {
   height:50px;
   background: blue;
   margin: 0;
-  /*border-radius: 50%;*/
-  /*animation: throw 1s infinite linear;*/
+  border-radius: 50%;
 }
-/*
-@keyframes throw {
-  0% {
-    left: 50%;
-    bottom: 0;
-    margin-left: 25px;
-  }
-  50% {
-    left: 60%;
-    bottom: 50%;
-    transform: scale(0.8);
-  }
-  100% {
-    left: 70%;
-    bottom: 80%;
-    transform: scale(0.6);
-  }
-}*/
-
-
-#go {  
-    position: absolute;  
-    background-color: blue;  
-    color: #fff;  
-    padding: 10px;  
-    border: 1px solid #ccc;  
-    border-radius: 5px;  
-    width: 100px;  
-} 

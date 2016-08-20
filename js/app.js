@@ -1,37 +1,26 @@
-window.addEventListener('DOMContentLoaded', start);
-
-function start() {
-  var cat = document.getElementById('cat');
-  var politician = document.getElementById('politician');
-}
-
-
-
-
-// ===================================================
-
-//animation effect to move object around the page with jQuery:
-
 $(document).ready(function() {
-  $('#politician').animate({left:'+=94%'},1000);
-  $('#politician').effect('bounce', {times: 3}, 500)
+  var $politician = $('#politician');
+  var $cat        = $('#cat');
+  $politician.animate({
+    left:'+=65.3%'
+  }, {
+    duration: 5000,
+    step: function(currentStep){
+      var politiciationPosition = $politician.offset();
+      var catPosition           = $cat.offset();
 
-  $('#cat').click(explode);
-  $(document).click(target);
-
+      if (catPosition.left >= (politiciationPosition.left - 50) && 
+        catPosition.left <= (politiciationPosition.left + 50)) {
+        $('#politician').stop();
+        $('#politician').effect('explode');
+      }
+    }
+  });
+  $( document).click(catMove);
 });
 
-function explode() {
-  $(this).effect('explode');
+function catMove() {
+  var x = event.pageX-25;
+  var y = event.pageY-25;
+  $("#cat").css( {position:"absolute", top:y, left:x});
 }
-
-function target() {
-    var XPosition = 0;
-    var YPosition = 0;
-    var $cat = $("#cat");
-    $(document).click(function (e) {
-        XPosition = e.pageX - 25;
-        YPosition = e.pageY - 25;
-        $cat.stop().animate({ top: YPosition, left: XPosition });
-    });
-};
