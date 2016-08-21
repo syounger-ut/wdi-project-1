@@ -1,13 +1,13 @@
 var playerScore = 0;
-var politicianNo = 0;
+var politicianScore = 0;
 
 $(document).ready(function() {
-  $( document).click(catMove);
+  $(document).click(catMove);
   setBoard();
 });
 
-function randNum(max) {
-  var generator = Math.random() * (max - 0) + 0;
+function randNum(max, min) {
+  var generator = Math.random() * (max - min) + min;
   return generator;
 }
 
@@ -17,20 +17,23 @@ function direction() {
 }
 
 function setBoard() {
+  politicianScore++;
+  console.log(politicianScore);
+  $('#politician').remove();
+  $('#cat').remove();
   $('.gameContainer').append("<div id='politician'></div>");
   $('.gameContainer').append("<div id='cat'></div>");
-  $('#politician').offset({left: randNum(250), top: randNum(250)})
+  $('#politician').offset({left: randNum(1200, 200), top: randNum(500, 0)})
   movePolitician();
 }
 
 function movePolitician() {
-  politicianNo++;
   var $politician = $('#politician');
   var $cat        = $('#cat');
   $politician.animate({
-    left: direction() + '=' + randNum(100) + '%', top: direction() + '=' + randNum(100) + '%'
+    left: direction() + '=' + randNum(100, 0) + '%', top: direction() + '=' + randNum(100, 0) + '%'
   }, {
-    duration: 1000,
+    duration: 5000,
     step: function(now, fx){
       var test = /*fx.elem.id + " " + fx.prop + ": " + */fx;
       $('#politician').css('left', fx + 100);
@@ -39,33 +42,48 @@ function movePolitician() {
       collision(politicianPosition, catPosition, politician, cat);
     },
     complete: function() {
-          $('#politician').remove();
-          $('#cat').remove();
           setBoard();
     }
   });
 };
 
-function collision(politicianPosition, catPosition, politician, cat) {
+
+// listen for colliding cat & politician => DONE
+function collision(politicianPosition, catPosition) {
   if  (catPosition.left >= (politicianPosition.left - 50) &&
       catPosition.left  <= (politicianPosition.left + 50) &&
       catPosition.top   >= (politicianPosition.top - 50) &&
       catPosition.top   <= (politicianPosition.top + 50)) {
-        $(politician).stop();
-        $(politician).effect('explode');
-        playerScore+= 0.5;
-        $('#playerScore').html(playerScore);
-        $('#politician').remove();
-        $('#cat').remove();
-        setBoard();
+        return confirmHit();
       }
+  return;
 }
 
+function confirmHit() {
+  $('#politician').stop();
+  $('#cat').stop();
+  $('#politician').effect('explode');
+  playerScore+= 0.5;
+  $('#playerScore').html(playerScore);
+  setBoard();
+}
+
+// move the cat to where clicked
 function catMove() {
   var x = event.pageX-25;
   var y = event.pageY-25;
-  $('#cat').animate( {top:+y, left:x},{duration: 1000});
-  halfWay(x,y);
+  console.log('x: ' + x + 'y: ' + y)
+  $('#cat').animate({
+    top:y, left:x
+  },{
+    duration: 1000,
+    complete: function(),{
+      $('#politician').stop();
+      $('#politician').remove();
+      $('#cat').remove();
+      setBoard();
+    }
+  });
 }
 
 function halfWay(x,y) {
