@@ -3,18 +3,23 @@ var politicianNo = 0;
 
 $(document).ready(function() {
   $( document).click(catMove);
-  startPosition();
+  setBoard();
 });
 
-function startPosition() {
-  var generator = Math.random() * (250 - 0) + 0;
-  setBoard(generator);
+function randNum(max) {
+  var generator = Math.random() * (max - 0) + 0;
+  return generator;
 }
 
-function setBoard(startPosition) {
+function direction() {
+  var plusOrMinus = Math.random() < 0.5 ? '-' : '+';
+  return plusOrMinus;
+}
+
+function setBoard() {
   $('.gameContainer').append("<div id='politician'></div>");
   $('.gameContainer').append("<div id='cat'></div>");
-  $('#politician').offset({left: startPosition, top: startPosition})
+  $('#politician').offset({left: randNum(250), top: randNum(250)})
   movePolitician();
 }
 
@@ -23,9 +28,9 @@ function movePolitician() {
   var $politician = $('#politician');
   var $cat        = $('#cat');
   $politician.animate({
-    left:'+=65.3%', top: "+=50%"
+    left: direction() + '=' + randNum(100) + '%', top: direction() + '=' + randNum(100) + '%'
   }, {
-    duration: 5000,
+    duration: 1000,
     step: function(now, fx){
       var test = /*fx.elem.id + " " + fx.prop + ": " + */fx;
       $('#politician').css('left', fx + 100);
@@ -36,7 +41,7 @@ function movePolitician() {
     complete: function() {
           $('#politician').remove();
           $('#cat').remove();
-          startPosition();
+          setBoard();
     }
   });
 };
@@ -52,7 +57,7 @@ function collision(politicianPosition, catPosition, politician, cat) {
         $('#playerScore').html(playerScore);
         $('#politician').remove();
         $('#cat').remove();
-        startPosition();
+        setBoard();
       }
 }
 
@@ -70,13 +75,4 @@ function halfWay(x,y) {
   console.log("X HalfWay = " + halfWayX + " Y HalfWay " + halfWayY)
   if(x === halfWay)
     $('#cat').css("background", "black");
-}
-
-function direction(x) {
-  var $center = $(window).width()/2;
-  if(x<$center) {
-    // do something
-  } else {
-    // do something else
-  }
 }
