@@ -1,14 +1,39 @@
 var playerScore = 0;
 var $politician, $cat;
 var moving      = true;
+var politicianNo = 0;
+
+var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg" ]
 
 $(document).ready(function() {
   $(document).click(catMove);
   startPosition();
+  $(document).on('mousemove', findAngle);
 });
 
 function randNum(max, min) {
   return Math.random() * (max - min + 1) + min;
+}
+
+function findAngle(event) {
+
+  var cannonPosition = $('.cannon').offset();
+  var x = event.pageX-50;
+  var y = event.pageY-50;
+
+  var height = cannonPosition.left - x;
+  var width = cannonPosition.top - y;
+  var answer = Math.atan2(height, width) * 180 / Math.PI;
+  $('.cannon').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
+}
+
+function politicianCount() {
+  var allPoliticians = politicians.length;
+  if(politicianNo >= allPoliticians) {
+    politicianNo = 0;
+  } else {
+    return politicianNo;
+  }
 }
 
 function startPosition() {
@@ -21,35 +46,19 @@ function startPosition() {
 function addPoliticianAndCatToBoard(x,y) {
   if ($politician) $politician.stop().remove();
   if ($cat)        $cat.stop().remove();
-
   $politician = $(
     "<div class='body'>" + 
-      "<div class='head' id='politician'></div>" + 
-      "<div class='arm'></div>" + 
-      "<div class='torso'></div>" + 
-      "<div class='arm'></div>" + 
-      "<div class='leg'></div>" + 
-      "<div class='leg'></div>" + 
+      "<div class = 'head' id='politician'></div>" + 
+      "<div class = 'arm'></div>" + 
+      "<div class = 'torso'></div>" + 
+      "<div class = 'arm'></div>" + 
+      "<div class = 'leg'></div>" + 
+      "<div class = 'leg'></div>" + 
     "</div>"
   );
-
-
-
   $('.gameContainer').append($politician);
-    //+
-
-    // "<div class='body'>" + 
-    //   "<div class='head' id='politician'></div>" + 
-    //   "<div class='arm'></div>" + 
-    //   "<div class='torso'></div>" + 
-    //   "<div class='arm'></div>" + 
-    //   "<div class='leg'></div>" + 
-    //   "<div class='leg'></div>" + 
-    // "</div>"
- // );
-  // $politician = $("<div class='head' id='politician'></div>")
   $cat        = $("<div id='cat'></div>");
-  // $('.gameContainer').append($politician);
+  $('#politician').append("<img src='images/" + politicians[politicianNo] +"'>")
   $('.gameContainer').append($cat);
   $politician.offset({left: x, top: y})
   movePolitician();
@@ -94,7 +103,9 @@ function confirmHit() {
   moving = false;
   $politician.effect('explode');
   $cat.effect('explode');
-  playerScore += 1;
+  playerScore ++;
+  politicianNo++;
+  politicianCount()
   $('#playerScore').html(playerScore);
   startPosition();
 }
