@@ -1,6 +1,7 @@
 var playerScore = 0;
 var $politician, $cat;
 var moving      = true;
+var fired = false;
 var politicianNo = 0;
 
 var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg" ]
@@ -16,16 +17,20 @@ function randNum(max, min) {
 }
 
 function mouseTrack(event) {
-  var cannonPosition = $('.cannon').offset();
-  var x = event.pageX;
-  var y = event.pageY;
+  if(fired === false){
+    var cannonPosition = $('.cannon').offset();
+    var x = event.pageX;
+    var y = event.pageY;
 
-  var height = cannonPosition.left - x+50;
-  var width = cannonPosition.top - y+50;
+    var height = cannonPosition.left - x+50;
+    var width = cannonPosition.top - y+50;
 
-  var answer = Math.atan2(height, width) * 180 / Math.PI;
-  $('.cannon').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
-  $('.catContainer').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
+    var answer = Math.atan2(height, width) * 180 / Math.PI;
+    $('.cannon').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
+    $('.catContainer').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
+  } else {
+    return;
+  }
 }
 
 function politicianCount() {
@@ -38,6 +43,8 @@ function politicianCount() {
 }
 
 function startPosition() {
+  fired = false;
+  $(document).on('mousemove', mouseTrack);
   var $container = $(".gameContainer");
   var x          = randNum(50, $container.width() - 50);
   var y          = randNum(50, $container.height() - 50);
@@ -96,10 +103,10 @@ function movePolitician() {
 
 // listen for colliding cat & politician => DONE
 function collision(politicianPosition, catPosition) {
-  if (moving && catPosition.left >= (politicianPosition.left - 50) &&
-    catPosition.left  <= (politicianPosition.left + 50) &&
-    catPosition.top   >= (politicianPosition.top - 50) &&
-    catPosition.top   <= (politicianPosition.top + 50)) {
+  if (moving && catPosition.left >= (politicianPosition.left - 25) &&
+                catPosition.left <= (politicianPosition.left + 25) &&
+                catPosition.top  >= (politicianPosition.top - 25) &&
+                catPosition.top  <= (politicianPosition.top + 25)) {
       return confirmHit(politician, cat);
     }
   return;
@@ -121,6 +128,7 @@ function confirmHit() {
 function catMove() {
   var x = event.pageX;
   var y = event.pageY-25;
+  fired = true;
 
   $cat.animate({
     top: y, 
