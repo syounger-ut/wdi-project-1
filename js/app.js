@@ -4,7 +4,7 @@ var moving      = true;
 var fired = false;
 var politicianNo = 0;
 
-var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg" ]
+var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg", "owenS.jpg", "donaldT.jpg", "angelaM.jpg", "theresaM.jpg", "marshmallowM.jpg" ]
 
 $(document).ready(function() {
   $(document).click(catMove);
@@ -103,10 +103,10 @@ function movePolitician() {
 
 // listen for colliding cat & politician => DONE
 function collision(politicianPosition, catPosition) {
-  if (moving && catPosition.left >= (politicianPosition.left - 25) &&
-                catPosition.left <= (politicianPosition.left + 25) &&
-                catPosition.top  >= (politicianPosition.top - 25) &&
-                catPosition.top  <= (politicianPosition.top + 25)) {
+  if (moving && catPosition.left >= (politicianPosition.left - 50) &&
+                catPosition.left <= (politicianPosition.left + 50) &&
+                catPosition.top  >= (politicianPosition.top - 50) &&
+                catPosition.top  <= (politicianPosition.top + 50)) {
       return confirmHit(politician, cat);
     }
   return;
@@ -126,6 +126,8 @@ function confirmHit() {
 
 // move the cat to where clicked
 function catMove() {
+  // var i = $(this).attr('id').substring(1);           //get the index of button
+  new Audio("http://www.wavsource.com/snds_2016-08-21_1204101428963685/animals/cat_screech2.wav").play();          //play corresponding audio
   var x = event.pageX;
   var y = event.pageY-25;
   fired = true;
