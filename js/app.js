@@ -19,13 +19,37 @@ function startPosition() {
 }
 
 function addPoliticianAndCatToBoard(x,y) {
-  console.log("addPoliticianAndCatToBoard");
   if ($politician) $politician.stop().remove();
   if ($cat)        $cat.stop().remove();
 
-  $politician = $("<div id='politician'></div>")
-  $cat        = $("<div id='cat'></div>");
+  $politician = $(
+    "<div class='body'>" + 
+      "<div class='head' id='politician'></div>" + 
+      "<div class='arm'></div>" + 
+      "<div class='torso'></div>" + 
+      "<div class='arm'></div>" + 
+      "<div class='leg'></div>" + 
+      "<div class='leg'></div>" + 
+    "</div>"
+  );
+
+
+
   $('.gameContainer').append($politician);
+    //+
+
+    // "<div class='body'>" + 
+    //   "<div class='head' id='politician'></div>" + 
+    //   "<div class='arm'></div>" + 
+    //   "<div class='torso'></div>" + 
+    //   "<div class='arm'></div>" + 
+    //   "<div class='leg'></div>" + 
+    //   "<div class='leg'></div>" + 
+    // "</div>"
+ // );
+  // $politician = $("<div class='head' id='politician'></div>")
+  $cat        = $("<div id='cat'></div>");
+  // $('.gameContainer').append($politician);
   $('.gameContainer').append($cat);
   $politician.offset({left: x, top: y})
   movePolitician();
@@ -79,7 +103,7 @@ function confirmHit() {
 function catMove() {
   var x = event.pageX-25;
   var y = event.pageY-25;
-  
+
   $cat.animate({
     top: y, 
     left: x

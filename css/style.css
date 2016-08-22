@@ -4,6 +4,10 @@
   font-family: 'Kaushan Script', cursive;
 }
 
+html {
+  font-size: 10%;
+}
+
 body {
   background-color: #114800;
 }
@@ -91,7 +95,7 @@ img {
   border-radius: 10px;
 }
 
-#cat, #politician {
+#cat {
   background-color: black;
   display: inline-block;
   margin: 10px;
@@ -106,26 +110,68 @@ img {
   margin: 0 auto;
   /*position: relative;*/
 }
-
-/*===============================================*/
-/*Moving politician element on page*/
-#politician {
-  position: absolute;
-  width: 50px;
-  height:50px;
-  background: red;
-  border-radius: 50%;
-}
 /*===========================================*/
 /*Moving cat element on page*/
 #cat {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 15%;
   margin: 0 0 0 -25px;
   width: 50px;
   height:50px;
   background: blue;
-  margin: 0;
   border-radius: 50%;
+}
+/*================================================*/
+/*Body styling*/
+.body {
+  height: 17rem;
+  width: 10.3rem;
+  /*background: lightgrey;*/
+  margin: 5rem auto;
+  /*position: relative;*/
+
+}
+#politician {
+  /*position: absolute;*/
+  width: 5rem;
+  height:5rem;
+  background: red;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.torso {
+  height: 6rem;
+  width: 5rem;
+  background: pink;
+  border-radius: 1rem;
+  display: inline-block;
+}
+.arm {
+  height: 6rem;
+  width: 2rem;
+  background: hotpink;
+  border-radius: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.2rem;
+}
+div div.arm:last-child{
+  background: black;
+}
+.leg {
+  height: 6rem;
+  width: 2rem;
+  background: hotpink;
+  border-radius: 1rem;
+  display: inline-block;
+  transform: rotate(25deg);
+  position: absolute;
+  left: 20%;
+  top: 65%;
+}
+div.leg:last-child{
+  background: blue;
+  left: 60%;
+  transform: rotate(-25deg)
 }
