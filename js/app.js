@@ -1,96 +1,92 @@
 var playerScore = 0;
-var politicianScore = 0;
+var $politician, $cat;
+var moving      = true;
 
 $(document).ready(function() {
   $(document).click(catMove);
-  setBoard();
+  startPosition();
 });
 
 function randNum(max, min) {
-  var generator = Math.random() * (max - min) + min;
-  return generator;
+  return Math.random() * (max - min + 1) + min;
 }
 
-function direction() {
-  var plusOrMinus = Math.random() < 0.5 ? '-' : '+';
-  return plusOrMinus;
+function startPosition() {
+  var $container = $(".gameContainer");
+  var x          = randNum(50, $container.width() - 50);
+  var y          = randNum(50, $container.height() - 50);
+  addPoliticianAndCatToBoard(x,y)
 }
 
-function setBoard() {
-  politicianScore++;
-  console.log(politicianScore);
-  $('#politician').remove();
-  $('#cat').remove();
-  $('.gameContainer').append("<div id='politician'></div>");
-  $('.gameContainer').append("<div id='cat'></div>");
-  $('#politician').offset({left: randNum(1200, 200), top: randNum(500, 0)})
+function addPoliticianAndCatToBoard(x,y) {
+  console.log("addPoliticianAndCatToBoard");
+  if ($politician) $politician.stop().remove();
+  if ($cat)        $cat.stop().remove();
+
+  $politician = $("<div id='politician'></div>")
+  $cat        = $("<div id='cat'></div>");
+  $('.gameContainer').append($politician);
+  $('.gameContainer').append($cat);
+  $politician.offset({left: x, top: y})
   movePolitician();
 }
 
 function movePolitician() {
-  var $politician = $('#politician');
-  var $cat        = $('#cat');
-  $politician.animate({
-    left: direction() + '=' + randNum(100, 0) + '%', top: direction() + '=' + randNum(100, 0) + '%'
-  }, {
-    duration: 5000,
-    step: function(now, fx){
-      var test = /*fx.elem.id + " " + fx.prop + ": " + */fx;
-      $('#politician').css('left', fx + 100);
-      var politicianPosition    = $politician.offset();
-      var catPosition           = $cat.offset();
-      collision(politicianPosition, catPosition, politician, cat);
-    },
-    complete: function() {
-          setBoard();
-    }
-  });
-};
+  var $container  = $(".gameContainer");
+  var x           = randNum(50, $container.width() - 50);
+  var y           = randNum(50, $container.height() - 50);
+  moving          = true;
 
+  $politician
+    .animate({
+      left: x, 
+      top: y
+    }, {
+      duration: 5000,
+      step: function(now, fx){
+        var politicianPosition = $politician.offset();
+        var catPosition        = $cat.offset();
+        collision(politicianPosition, catPosition);
+      },
+      complete: function() {
+        startPosition();
+      }
+    });
+};
 
 // listen for colliding cat & politician => DONE
 function collision(politicianPosition, catPosition) {
-  if  (catPosition.left >= (politicianPosition.left - 50) &&
-      catPosition.left  <= (politicianPosition.left + 50) &&
-      catPosition.top   >= (politicianPosition.top - 50) &&
-      catPosition.top   <= (politicianPosition.top + 50)) {
-        return confirmHit();
-      }
+  if (moving && catPosition.left >= (politicianPosition.left - 50) &&
+    catPosition.left  <= (politicianPosition.left + 50) &&
+    catPosition.top   >= (politicianPosition.top - 50) &&
+    catPosition.top   <= (politicianPosition.top + 50)) {
+      return confirmHit(politician, cat);
+    }
   return;
 }
 
 function confirmHit() {
-  $('#politician').stop();
-  $('#cat').stop();
-  $('#politician').effect('explode');
-  playerScore+= 0.5;
+  console.log("HIT")
+  moving = false;
+  $politician.effect('explode');
+  $cat.effect('explode');
+  playerScore += 1;
   $('#playerScore').html(playerScore);
-  setBoard();
+  startPosition();
 }
 
 // move the cat to where clicked
 function catMove() {
   var x = event.pageX-25;
   var y = event.pageY-25;
-  console.log('x: ' + x + 'y: ' + y)
-  $('#cat').animate({
-    top:y, left:x
+  
+  $cat.animate({
+    top: y, 
+    left: x
   },{
     duration: 1000,
-    complete: function(),{
-      $('#politician').stop();
-      $('#politician').remove();
-      $('#cat').remove();
-      setBoard();
+    complete: function(){
+      startPosition();
     }
   });
-}
-
-function halfWay(x,y) {
-  var $center = $(window).width()/2;
-  var halfWayX = ((x-$center)/2 < 0) ? (x-$center)/2 *-1: (x-$center)/2;
-  var halfWayY = y/2;
-  console.log("X HalfWay = " + halfWayX + " Y HalfWay " + halfWayY)
-  if(x === halfWay)
-    $('#cat').css("background", "black");
 }
