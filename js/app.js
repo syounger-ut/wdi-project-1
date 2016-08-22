@@ -8,15 +8,14 @@ var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC
 $(document).ready(function() {
   $(document).click(catMove);
   startPosition();
-  $(document).on('mousemove', findAngle);
+  $(document).on('mousemove', cannonMove);
 });
 
 function randNum(max, min) {
   return Math.random() * (max - min + 1) + min;
 }
 
-function findAngle(event) {
-
+function cannonMove(event) {
   var cannonPosition = $('.cannon').offset();
   var x = event.pageX-50;
   var y = event.pageY-50;
@@ -112,7 +111,7 @@ function confirmHit() {
 
 // move the cat to where clicked
 function catMove() {
-  var x = event.pageX-25;
+  var x = event.pageX;
   var y = event.pageY-25;
 
   $cat.animate({

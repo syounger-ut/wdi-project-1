@@ -76,20 +76,6 @@ img {
   height: auto;
 }
 
-#cat {
-  width: 20px;
-  height: 20px;
-  background-color: blue;
-}
-
-#cat {
-  background-color: black;
-  display: inline-block;
-  margin: 10px;
-  height: 50px;
-  width: 50px;
-}
-
 .gameContainer {
   width: 1000px;
   height: 500px;
@@ -100,15 +86,16 @@ img {
 /*===========================================*/
 /*Moving cat element on page*/
 #cat {
-  position: absolute;
-  left: 50%;
-  bottom: 15%;
-  margin: 0 0 0 -25px;
   width: 50px;
   height:50px;
-  background: blue;
+  position: absolute;
+  left: 50%;
+  bottom: 19%;
+  margin: 0 0 0 -25px;
   border-radius: 50%;
-}
+  background-image: url('../images/cat.png');
+  background-size: cover;
+  }
 /*================================================*/
 /*Body styling*/
 .body {
@@ -143,7 +130,7 @@ img {
 .torso {
   height: 6rem;
   width: 5rem;
-  background: pink;
+  background: darkgrey;
   border-radius: 1rem;
   display: inline-block;
 }
@@ -171,7 +158,6 @@ div div.arm:last-child{
   top: 65%;
 }
 div.leg:last-child{
-  background: blue;
   left: 60%;
   transform: rotate(-25deg)
 }
