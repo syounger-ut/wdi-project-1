@@ -30,7 +30,7 @@ li:hover {
 }
 
 h1 {
-  padding: 100px 0 25px 0;
+  /*padding: 100px 0 25px 0;*/
   font-size: 50px;
 }
 
@@ -40,8 +40,8 @@ h1, h2 {
 }
 
 h2 {
-  padding: 10px;
   font-size: 25px;
+  margin: 10px 0 0 0;
 }
 
 .politician-container {
@@ -75,26 +75,66 @@ img {
   width: 200px;
   height: auto;
 }
+.newspaper{
+  padding-top: 10px;
+  display: block;
+  margin: 0 auto;
+  width: 1400px;
+  height: 600px;
+  text-align: center;
+}
+.articles{
+  width: 200px;
+  padding: 10px;
+  margin: 0;
+  float: left;
+}
+h3 {
+  font-size: 25px;
+  padding-bottom: 10px;
+
+}
+p {
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
 
 .gameContainer {
   width: 1000px;
   height: 500px;
-  background-color: yellow;
+  background-image: url("../images/westminster.jpg");
+  background-size: cover;
+  border: 6px solid darkgrey;
+  border-style: inset;
   margin: 0 auto;
-  /*position: relative;*/
+  padding: 0;
+  float: left;
 }
 /*===========================================*/
 /*Moving cat element on page*/
+.catContainer{
+  position: absolute;
+  bottom: 0;
+  height: 190px;
+  width: 50px;
+  /*background: hotpink;*/
+  left: 50%;
+  margin-left: -25px;
+}
+
 #cat {
   width: 50px;
   height:50px;
   position: absolute;
-  left: 50%;
-  bottom: 19%;
-  margin: 0 0 0 -25px;
+  /*left: 50%;*/
+  /*bottom: 19%;*/
+  margin: 0;
   border-radius: 50%;
   background-image: url('../images/cat.png');
   background-size: cover;
+  vertical-align: top;
   }
 /*================================================*/
 /*Body styling*/
@@ -133,11 +173,19 @@ img {
   background: darkgrey;
   border-radius: 1rem;
   display: inline-block;
+  position: relative;
+  z-index: 1000;
+}
+.tie {
+  height: 3rem;
+  width: 0.5rem;
+  background: black;
+  margin: 0 auto;
 }
 .arm {
   height: 6rem;
-  width: 2rem;
-  background: hotpink;
+  width: 1rem;
+  background: darkgrey;
   border-radius: 1rem;
   display: inline-block;
   vertical-align: top;
@@ -148,14 +196,15 @@ div div.arm:last-child{
 }
 .leg {
   height: 6rem;
-  width: 2rem;
-  background: hotpink;
+  width: 1.5rem;
+  background: darkgrey;
   border-radius: 1rem;
   display: inline-block;
   transform: rotate(25deg);
   position: absolute;
-  left: 20%;
-  top: 65%;
+  left: 25%;
+  top: 60%;
+  z-index: 1;
 }
 div.leg:last-child{
   left: 60%;

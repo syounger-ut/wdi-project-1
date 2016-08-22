@@ -8,22 +8,24 @@ var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC
 $(document).ready(function() {
   $(document).click(catMove);
   startPosition();
-  $(document).on('mousemove', cannonMove);
+  $(document).on('mousemove', mouseTrack);
 });
 
 function randNum(max, min) {
   return Math.random() * (max - min + 1) + min;
 }
 
-function cannonMove(event) {
+function mouseTrack(event) {
   var cannonPosition = $('.cannon').offset();
-  var x = event.pageX-50;
-  var y = event.pageY-50;
+  var x = event.pageX;
+  var y = event.pageY;
 
-  var height = cannonPosition.left - x;
-  var width = cannonPosition.top - y;
+  var height = cannonPosition.left - x+50;
+  var width = cannonPosition.top - y+50;
+
   var answer = Math.atan2(height, width) * 180 / Math.PI;
   $('.cannon').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
+  $('.catContainer').css({'transform' : 'rotate(' + (answer*-1) + 'deg)'});
 }
 
 function politicianCount() {
@@ -49,14 +51,20 @@ function addPoliticianAndCatToBoard(x,y) {
     "<div class='body'>" + 
       "<div class = 'head' id='politician'></div>" + 
       "<div class = 'arm'></div>" + 
-      "<div class = 'torso'></div>" + 
+      "<div class = 'torso'>" +
+        "<div class='tie'></div>" +
+      "</div>" + 
       "<div class = 'arm'></div>" + 
       "<div class = 'leg'></div>" + 
       "<div class = 'leg'></div>" + 
     "</div>"
   );
   $('.gameContainer').append($politician);
-  $cat        = $("<div id='cat'></div>");
+  $cat = $(
+    "<div class='catContainer'>" +
+      "<div id='cat'></div>" +
+    "</div>"
+  );
   $('#politician').append("<img src='images/" + politicians[politicianNo] +"'>")
   $('.gameContainer').append($cat);
   $politician.offset({left: x, top: y})
