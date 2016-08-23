@@ -20,6 +20,7 @@ function startGame() {
 function unHide(index, value) {
   $('.start').css('display', 'none');
   $('.description').css('display', 'none');
+  $('.disclaimer').css('display', 'none');
   $(value).css('visibility', 'visible');
 } 
 
