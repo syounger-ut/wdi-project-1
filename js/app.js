@@ -25,7 +25,12 @@ function unHide(index, value) {
 } 
 
 function randNum(max, min) {
-  return Math.random() * (max - min + 1) + min;
+  return Math.random() * (max - min) + min;
+}
+
+function direction() {
+  var plusOrMinus = Math.random() < 0.5 ? '-' : '+';
+  return plusOrMinus;
 }
 
 function mouseTrack(event) {
@@ -58,8 +63,8 @@ function startPosition() {
   fired = false;
   $(document).on('mousemove', mouseTrack);
   var $container = $(".gameContainer");
-  var x          = randNum(50, $container.width() - 50);
-  var y          = randNum(50, $container.height() - 50);
+  var x          = randNum($container.width() - 50, 245);
+  var y          = randNum($container.height() - 50, 150);
   addPoliticianAndCatToBoard(x,y)
 }
 
@@ -93,14 +98,14 @@ function addPoliticianAndCatToBoard(x,y) {
 
 function movePolitician() {
   var $container  = $(".gameContainer");
-  var x           = randNum(50, $container.width() - 50);
-  var y           = randNum(50, $container.height() - 50);
+  var x           = randNum($container.width() - 50, 245);
+  var y           = randNum($container.height() - 50,150);
   moving          = true;
 
   $politician
     .animate({
-      left: x, 
-      top: y
+      left: direction() + x,
+      top: direction() + y
     }, {
       duration: 5000,
       step: function(now, fx){
