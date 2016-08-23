@@ -6,56 +6,33 @@
   <link rel="stylesheet" href="css/reset.css">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery-3.1.0.slim.js"></script>
+  <script src="js/jquery-3.1.0.js"></script>
+  <script src="/users/samyounger/development/wdi-project-1/js/jquery-ui-1.12.0.custom/jquery-ui.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
-  <ul>
-    <li>Instructions</li>
-    <li>Read Me</li>
-  </ul>
-  <h1>PolitiCat</h1>
-  <h2>Your opponents are swaying public opinion against you</h2>
-  <h2>Distract the public by throwing cats at them</h2>
+    <h1>PolitiCat</h1><br>
+    <ul>
+      <li>Player Score: </li>
+      <li id=playerScore>0</li>
+    </ul>
+    <button class="start">Click to Start</button>
+    <p class='description'>Ever wanted to throw a cat at a politician. Why not, they do it all the time, the strategy is called dead cat. The aim is to distract the audience from the topic by presenting something more interesting. The aim of the game is to hit the politician in the head with the cat.</p>
   <div class="newspaper">
     <div class="articles">
-      <h3>Headline</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sequi ducimus, nostrum animi obcaecati cumque enim a veritatis eligendi, dignissimos reiciendis. Maxime, ratione esse optio rerum voluptate harum asperiores alias!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt expedita quia tempora debitis aut tenetur perferendis eos illo, voluptatem, quod, ipsum, inventore eaque aliquid dicta veniam maxime explicabo? Illum, harum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci voluptas, placeat, qui dolorem sint nisi animi ipsam minima harum dolor quae in quis, cumque optio maiores reprehenderit asperiores unde nemo.</p>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim perferendis fugiat mollitia, architecto perspiciatis unde, beatae eveniet velit tempora ea quibusdam aspernatur expedita rem pariatur. Laborum nobis fugiat accusamus.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum commodi explicabo totam quos, eligendi quam laboriosam amet possimus doloremque cupiditate quidem sint sed, tenetur, nisi. Omnis laudantium odit ad commodi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos consequatur labore facilis veniam. Explicabo, quibusdam. Deleniti corrupti ex saepe, illo vel quos quae, blanditiis eveniet. Iste voluptate, repellat autem nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     </div>
-    <div class="mainPageContainer">
-      <select name="politicianOne" id="politicianOne">
-        <option value="">Player One Select</option>
-        <option value="johnPrescott">John Prescott</option>
-        <option value="davidCameron">David Cameron</option>
-        <option value="jeremyCorbyn">Jeremy Corbyn</option>
-        <option value="borisJohnston">Boris Johnston</option>
-        <option value="tonyBlair">Tony Blair</option>
-        <option value="gordonBrown">Gordon Brown</option>
-        <option value="nickClegg">Nick Clegg</option>
-        <option value="georgeOsborn">George Osborn</option>
-      </select>
-      <select name="politicianTwo" id="politicianTwo">
-        <option value="">Player Two Select</option>
-        <option value="johnPrescott">John Prescott</option>
-        <option value="davidCameron">David Cameron</option>
-        <option value="jeremyCorbyn">Jeremy Corbyn</option>
-        <option value="borisJohnston">Boris Johnston</option>
-        <option value="tonyBlair">Tony Blair</option>
-        <option value="gordonBrown">Gordon Brown</option>
-        <option value="nickClegg">Nick Clegg</option>
-        <option value="georgeOsborn">George Osborn</option>
-      </select>
-      <div class="politicianOne">
-        <img src="images/prescott.gif" alt="John Prescott">
-      </div>
-      <div class="politicianTwo">
-        <img src="images/asian-politicians.gif" alt="">
-      </div>
-    </div>
+    <div class="gameContainer"></div>
     <div class="articles">
-      <h3>Headline</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sequi ducimus, nostrum animi obcaecati cumque enim a veritatis eligendi, dignissimos reiciendis. Maxime, ratione esse optio rerum voluptate harum asperiores alias!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt expedita quia tempora debitis aut tenetur perferendis eos illo, voluptatem, quod, ipsum, inventore eaque aliquid dicta veniam maxime explicabo? Illum, harum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci voluptas, placeat, qui dolorem sint nisi animi ipsam minima harum dolor quae in quis, cumque optio maiores reprehenderit asperiores unde nemo.</p>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim perferendis fugiat mollitia, architecto perspiciatis unde, beatae eveniet velit tempora ea quibusdam aspernatur expedita rem pariatur. Laborum nobis fugiat accusamus.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum commodi explicabo totam quos, eligendi quam laboriosam amet possimus doloremque cupiditate quidem sint sed, tenetur, nisi. Omnis laudantium odit ad commodi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos consequatur labore facilis veniam. Explicabo, quibusdam. Deleniti corrupti ex saepe, illo vel quos quae, blanditiis eveniet. Iste voluptate, repellat autem nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     </div>
+  </div>
+  <div class="cannon">
+    <div class="cannonOne"></div>
+    <div class="cannonTwo"></div>
+    <div class="cannonThree"></div>
   </div>
 </body>
 </html>

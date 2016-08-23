@@ -3,50 +3,58 @@
   color: black;
   font-family: 'Kaushan Script', cursive;
 }
-
 html {
   font-size: 10%;
 }
-
 body {
-  background-image: url("../images/politicalCat2.jpg");
+  background-image: url("../images/politicalCat.jpg");
   background-size: 250px;
   text-align: center;
 }
-
-ul {
-  /*float: right;*/
-  text-align: right;
-  margin: 20px;
+h1 {
+  display: inline-block;
+  margin: 10px;
+  height: 100px;
+  width: 400px;
+  font-family: 'Kaushan Script', cursive;
+  opacity: 0.9;
+  background: #FFEEC8;
+  border-radius: 10px;
+  padding: 5px 30px;
+  font-size: 80px;
+  box-shadow: 0 0 5px 5px #FFEEC8;
 }
-
+.start{
+  display: block;
+  margin: 140px auto;
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+  font-size: 50px;
+  background: #550000;
+  color: #AA3939;
+}
+ul {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  height: 50px;
+  width: 200px;
+  margin: 0px;
+}
 li {
-  display: inline;
+  display: inline-block;
   font-size: 25px;
   padding: 10px;
-  background: white;
+  background: #FFEEC8;
   opacity: 0.9;
   border-radius: 10px;
-  box-shadow: 0 0 5px 5px white;
-
+  box-shadow: 0 0 5px 5px #FFEEC8;
 }
-
 li:hover {
   background-color: #7ca270;
   border-radius: 10px;
 }
-
-h1 {
-  font-family: 'Kaushan Script', cursive;
-  opacity: 0.9;
-  display: inline;
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 50px;
-  box-shadow: 0 0 5px 5px white;
-}
-
 .mainPageContainer {
   width: 440px;
   height: 370px;
@@ -54,30 +62,6 @@ h1 {
   border-radius: 10px;
   margin: 50px auto 0;
   float: left;
-}
-
-.politicianOne, .politicianTwo {
-  width: 200px;
-  height: 300px;
-  background-color: #102809;
-  border-radius: 10px;
-  float: left;
-  margin: 10px;
-}
-
-#politicianOne, #politicianTwo {
-  width: 200px;
-  height: 25px;
-  background-color: #550000;
-  border: none;
-  margin: 10px;
-  float: left;
-  font-size: 15px;
-}
-
-img {
-  width: 200px;
-  height: auto;
 }
 .newspaper{
   padding-top: 10px;
@@ -90,17 +74,16 @@ img {
 .articles{
   width: 200px;
   padding: 10px;
-  margin: 20px 5px 5px;
+  margin: 20px 10px 5px;
   float: left;
-  background: white;
+  background: #FFEEC8;
   opacity: 0.9;
   border-radius: 10px;
-  box-shadow: 0 0 5px 5px white;
+  box-shadow: 0 0 5px 5px #FFEEC8;
 }
-h3 {
+h2 {
   font-size: 25px;
   padding-bottom: 10px;
-
 }
 p {
   font-size: 15px;
@@ -108,16 +91,25 @@ p {
   margin: 0;
   text-align: left;
 }
-
+.description {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  background: #FFEEC8;
+  margin: 0 20px;
+  padding: 20px;
+  box-shadow: 0 0 5px 5px #FFEEC8;
+  opacity: 0.9;
+}
 .gameContainer {
-  width: 980px;
+  width: 960px;
   height: 500px;
   background-image: url("../images/westminster.jpg");
   background-size: cover;
   border: 6px solid darkgrey;
   border-style: inset;
   border-radius: 10px;
-  margin: 20px auto 0;
+  margin: 10px auto 0;
   padding: 0;
   float: left;
 }
@@ -132,7 +124,6 @@ p {
   margin-left: -25px;
   display: hidden;
 }
-
 #cat {
   width: 50px;
   height:50px;
@@ -142,35 +133,25 @@ p {
   background-image: url('../images/cat.png');
   background-size: cover;
   vertical-align: top;
-  /*bottom: 0;*/
-  /*left: 50%;*/
-  /*margin-left: -25px;*/
   }
 /*================================================*/
 /*Body styling*/
 .body {
   height: 17rem;
   width: 10.3rem;
-  /*background: lightgrey;*/
   margin: 5rem auto;
-  /*position: relative;*/
-
 }
 #politician {
-  /*position: absolute;*/
   width: 5rem;
   height:5rem;
   background: red;
   border-radius: 50%;
   margin: 0 auto;
-
-
   display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;  
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;  
 }
-
 #politician img{
   max-width: 5rem;
   max-height: 5rem;
@@ -200,9 +181,6 @@ p {
   display: inline-block;
   vertical-align: top;
   margin: 0 0.2rem;
-}
-div div.arm:last-child{
-  background: black;
 }
 .leg {
   height: 6rem;
@@ -248,17 +226,15 @@ div.leg:last-child{
   margin: 0 auto;
   border-radius: 10px
 }
-
 /*==========================================*/
 /*Responsive workings*/
 @media only screen and (max-width: 1100px){
-  h2, h3, p{
+  h3, p{
     display: none;
   }
   .newspaper{
     width: 1000px;
     height: 500px;
-    background: blue;
     padding: 0;
   }
   .articles{
@@ -273,4 +249,9 @@ div.leg:last-child{
   .catContainer{
     bottom: -19%;
   }
+}
+/*============================================*/
+/*Hide all game inititally*/
+h2, ul, .gameContainer, .articles, .newspaper, .cannon, .catContainer {
+  visibility: hidden;
 }

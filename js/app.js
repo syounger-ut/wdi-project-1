@@ -3,14 +3,25 @@ var $politician, $cat;
 var moving      = true;
 var fired = false;
 var politicianNo = 0;
-
-var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg", "owenS.jpg", "donaldT.jpg", "angelaM.jpg", "theresaM.jpg", "marshmallowM.jpg" ]
+var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC.jpg", "nicolaS.jpg", "nigelF.jpg", "owenS.jpg", "donaldT.jpg", "angelaM.jpg", "theresaM.jpg", "marshmallowM.jpg" ];
+var hiddenStart = [ "h2", "ul", ".gameContainer", ".articles", ".newspaper", ".cannon", ".catContainer" ];
 
 $(document).ready(function() {
+  $('.start').click(startGame);
+});
+
+function startGame() {
+  $(hiddenStart).each(unHide);
   $(document).click(catMove);
   startPosition();
   $(document).on('mousemove', mouseTrack);
-});
+}
+
+function unHide(index, value) {
+  $('.start').css('display', 'none');
+  $('.description').css('display', 'none');
+  $(value).css('visibility', 'visible');
+}
 
 function randNum(max, min) {
   return Math.random() * (max - min + 1) + min;
@@ -74,6 +85,7 @@ function addPoliticianAndCatToBoard(x,y) {
   );
   $('#politician').append("<img src='images/" + politicians[politicianNo] +"'>")
   $('.gameContainer').append($cat);
+  $cat.css('visibility', 'visible');
   $politician.offset({left: x, top: y})
   movePolitician();
 }
@@ -113,7 +125,6 @@ function collision(politicianPosition, catPosition) {
 }
 
 function confirmHit() {
-  console.log("HIT")
   moving = false;
   $politician.effect('explode');
   $cat.effect('explode');
