@@ -24,7 +24,11 @@ function unHide(index, value) {
     $('.disclaimer').css('display', 'none');
     $(value).css('visibility', 'visible');    
   });
-  startGame();
+
+  setTimeout(function() {
+    startGame();
+  }, 1000);
+
 } 
 
 function randNum(max, min) {
@@ -107,8 +111,8 @@ function movePolitician() {
 
   $politician
     .animate({
-      left: direction() + x,
-      top: direction() + y
+      left: x,
+      top: y
     }, {
       duration: 5000,
       step: function(now, fx){
