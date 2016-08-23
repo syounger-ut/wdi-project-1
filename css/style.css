@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  color: white;
+  color: black;
   font-family: 'Kaushan Script', cursive;
 }
 
@@ -9,19 +9,26 @@ html {
 }
 
 body {
-  background-color: #114800;
+  background-image: url("../images/politicalCat2.jpg");
+  background-size: 250px;
+  text-align: center;
 }
 
 ul {
-  display: block;
+  /*float: right;*/
   text-align: right;
+  margin: 20px;
 }
 
 li {
-  /*float: left;*/
   display: inline;
   font-size: 25px;
   padding: 10px;
+  background: white;
+  opacity: 0.9;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px white;
+
 }
 
 li:hover {
@@ -30,18 +37,14 @@ li:hover {
 }
 
 h1 {
-  /*padding: 100px 0 25px 0;*/
-  font-size: 50px;
-}
-
-h1, h2 {
-  text-align: center;
   font-family: 'Kaushan Script', cursive;
-}
-
-h2 {
-  font-size: 25px;
-  margin: 10px 0 0 0;
+  opacity: 0.9;
+  display: inline;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 50px;
+  box-shadow: 0 0 5px 5px white;
 }
 
 .mainPageContainer {
@@ -87,8 +90,12 @@ img {
 .articles{
   width: 200px;
   padding: 10px;
-  margin: 0;
+  margin: 20px 5px 5px;
   float: left;
+  background: white;
+  opacity: 0.9;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px white;
 }
 h3 {
   font-size: 25px;
@@ -103,13 +110,14 @@ p {
 }
 
 .gameContainer {
-  width: 1000px;
+  width: 980px;
   height: 500px;
   background-image: url("../images/westminster.jpg");
   background-size: cover;
   border: 6px solid darkgrey;
   border-style: inset;
-  margin: 0 auto;
+  border-radius: 10px;
+  margin: 20px auto 0;
   padding: 0;
   float: left;
 }
@@ -118,7 +126,7 @@ p {
 .catContainer{
   position: absolute;
   bottom: 0;
-  height: 190px;
+  height: 100px;
   width: 50px;
   left: 50%;
   margin-left: -25px;
@@ -128,12 +136,15 @@ p {
 #cat {
   width: 50px;
   height:50px;
-  /*position: absolute;*/
+  position: absolute;
   margin: 0;
   border-radius: 50%;
   background-image: url('../images/cat.png');
   background-size: cover;
   vertical-align: top;
+  /*bottom: 0;*/
+  /*left: 50%;*/
+  /*margin-left: -25px;*/
   }
 /*================================================*/
 /*Body styling*/
@@ -215,7 +226,7 @@ div.leg:last-child{
   position: absolute;
   left: 50%;
   margin-left: -50px;
-  bottom: 0;
+  bottom: -10px;
 }
 .cannonOne{
   height: 20px;
@@ -225,13 +236,13 @@ div.leg:last-child{
   border-radius: 5px;
 }
 .cannonTwo{
-  height: 100px;
+  height: 40px;
   width: 50px;
   background: darkgrey;
   margin: 0 auto;
 }
 .cannonThree{
-  height: 30px;
+  height: 20px;
   width: 100px;
   background: brown;
   margin: 0 auto;

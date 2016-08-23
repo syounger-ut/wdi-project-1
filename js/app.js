@@ -126,8 +126,7 @@ function confirmHit() {
 
 // move the cat to where clicked
 function catMove() {
-  // var i = $(this).attr('id').substring(1);           //get the index of button
-  new Audio("http://www.wavsource.com/snds_2016-08-21_1204101428963685/animals/cat_screech2.wav").play();          //play corresponding audio
+  new Audio("http://www.wavsource.com/snds_2016-08-21_1204101428963685/animals/cat_screech2.wav").play();
   var x = event.pageX;
   var y = event.pageY-25;
   fired = true;
