@@ -39,7 +39,7 @@ ul {
   right: 1%;
   top: 1%;
   height: 50px;
-  width: 200px;
+  width: 210px;
   margin: 0px;
 }
 li {
@@ -68,18 +68,20 @@ li:hover {
   display: block;
   margin: 0 auto;
   width: 1400px;
-  height: 600px;
+  height: 530px;
   text-align: center;
 }
 .articles{
   width: 200px;
   padding: 10px;
-  margin: 20px 10px 5px;
+  margin: 10px 10px 5px;
   float: left;
   background: #FFEEC8;
   opacity: 0.9;
   border-radius: 10px;
   box-shadow: 0 0 5px 5px #FFEEC8;
+  position: relative;
+  z-index: 1;
 }
 h2 {
   font-size: 25px;
@@ -103,13 +105,13 @@ p {
 }
 .gameContainer {
   width: 960px;
-  height: 500px;
+  height: 530px;
   background-image: url("../images/westminster.jpg");
   background-size: cover;
   border: 6px solid darkgrey;
   border-style: inset;
   border-radius: 10px;
-  margin: 10px auto 0;
+  margin: 0 auto;
   padding: 0;
   float: left;
 }
@@ -123,6 +125,7 @@ p {
   left: 50%;
   margin-left: -25px;
   display: hidden;
+  z-index: 3;
 }
 #cat {
   width: 50px;
@@ -133,6 +136,7 @@ p {
   background-image: url('../images/cat.png');
   background-size: cover;
   vertical-align: top;
+  z-index: 3;
   }
 /*================================================*/
 /*Body styling*/
@@ -140,6 +144,8 @@ p {
   height: 17rem;
   width: 10.3rem;
   margin: 5rem auto;
+  position: relative;
+  z-index: 2;
 }
 #politician {
   width: 5rem;
@@ -151,6 +157,8 @@ p {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;  
+  position: relative;
+  z-index: 2;
 }
 #politician img{
   max-width: 5rem;
@@ -165,7 +173,7 @@ p {
   border-radius: 1rem;
   display: inline-block;
   position: relative;
-  z-index: 1000;
+  z-index: 2;
 }
 .tie {
   height: 3rem;
@@ -181,6 +189,8 @@ p {
   display: inline-block;
   vertical-align: top;
   margin: 0 0.2rem;
+  position: relative;
+  z-index: 2;
 }
 .leg {
   height: 6rem;
@@ -192,7 +202,7 @@ p {
   position: absolute;
   left: 25%;
   top: 60%;
-  z-index: 1;
+  z-index: 2;
 }
 div.leg:last-child{
   left: 60%;
@@ -204,7 +214,8 @@ div.leg:last-child{
   position: absolute;
   left: 50%;
   margin-left: -50px;
-  bottom: -10px;
+  bottom: -20px;
+  z-index: 3;
 }
 .cannonOne{
   height: 20px;
