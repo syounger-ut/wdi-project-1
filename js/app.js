@@ -12,9 +12,9 @@ $(document).ready(function() {
 
 function startGame() {
   $(hiddenStart).each(unHide);
-  $(document).click(catMove);
   startPosition();
   $(document).on('mousemove', mouseTrack);
+  $(document).click(catMove);
 }
 
 function unHide(index, value) {
