@@ -7,21 +7,24 @@ var politicians = [ "alexS.jpg", "borisJ.jpg", "davidC.jpg", "edM.jpg", "jeremyC
 var hiddenStart = [ "h2", "ul", ".gameContainer", ".articles", ".newspaper", ".cannon", ".catContainer" ];
 
 $(document).ready(function() {
-  $('.start').click(startGame);
+  // $('.start').click(startGame);
+  $('.start').click(unHide);  
 });
 
 function startGame() {
-  $(hiddenStart).each(unHide);
   startPosition();
   $(document).on('mousemove', mouseTrack);
   $(document).click(catMove);
 }
 
 function unHide(index, value) {
-  $('.start').css('display', 'none');
-  $('.description').css('display', 'none');
-  $('.disclaimer').css('display', 'none');
-  $(value).css('visibility', 'visible');
+  $(hiddenStart).each(function(index, value) {
+    $('.start').css('display', 'none');
+    $('.description').css('display', 'none');
+    $('.disclaimer').css('display', 'none');
+    $(value).css('visibility', 'visible');    
+  });
+  startGame();
 } 
 
 function randNum(max, min) {

@@ -12,8 +12,8 @@ body {
   text-align: center;
 }
 h1 {
-  display: inline-block;
-  margin: 10px;
+  display: block;
+  margin: 10px auto 0px;
   height: 100px;
   width: 400px;
   font-family: 'Kaushan Script', cursive;
@@ -26,7 +26,7 @@ h1 {
 }
 .start{
   display: block;
-  margin: 100px auto;
+  margin: 90px auto;
   width: 400px;
   height: 100px;
   border-radius: 10px;
@@ -36,8 +36,8 @@ h1 {
 }
 ul {
   position: absolute;
-  right: 1%;
-  top: 1%;
+  right: 2%;
+  top: 4%;
   height: 50px;
   width: 210px;
   margin: 0px;
@@ -50,18 +50,6 @@ li {
   opacity: 0.9;
   border-radius: 10px;
   box-shadow: 0 0 5px 5px #FFEEC8;
-}
-li:hover {
-  background-color: #7ca270;
-  border-radius: 10px;
-}
-.mainPageContainer {
-  width: 440px;
-  height: 370px;
-  background-color: #102809;
-  border-radius: 10px;
-  margin: 50px auto 0;
-  float: left;
 }
 .newspaper{
   padding-top: 10px;
