@@ -1,7 +1,9 @@
-# Sam's `1st` project for General Assembly `w02d04`
+# Sam's `1st project` for General Assembly
 ====
 
 <sam.younger@gmail.com> | <http://sam.younger.co.uk> | <https://github.com/samyounger>
+
+**Game Location:** <https://politicat.herokuapp.com/>
 
 ##Initial planning: Idea foundations
 ====
@@ -35,6 +37,8 @@
 - The colour used for highlighting the header and articles is: #FFEEC8
 - The red button is: #550000
 	* the text for the red button is: #AA3939
+
+**The Cat**
 
 ![Cat to Fire](http://pngimg.com/upload/cat_PNG1631.png "Cat Image")
 
