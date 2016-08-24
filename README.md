@@ -83,14 +83,14 @@ Currently I do not have the technical capability to add this functionality, but 
 - As the game advances, the speed the politicians appear at increases, and therefore could have a number of politicians flying across the screen at the same time
 
 
-##Notes
+##Idea notes
 - Cartoon of politician faces > or GIFs.
 - Make whole window look like newspaper, window where game is.
 - Step 1: .Animate method in jQuery. Manipulate the css with Jquery.
 	* can move the element across the page with jQuery by continuously looping and adding 10px to the left/right of the element.
 - Step 2: make sure you can get the collision detection to work.
 - Shrink element as it moves away (for the cat).
-- Random animnation on direction of element when it.
+- Random animation on direction of element.
 - Refresh position on page every 10ms to see if location is the same for 2 elements.
 
 ***
