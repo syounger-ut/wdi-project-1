@@ -35,11 +35,6 @@ function randNum(max, min) {
   return Math.random() * (max - min) + min;
 }
 
-function direction() {
-  var plusOrMinus = Math.random() < 0.5 ? '-' : '+';
-  return plusOrMinus;
-}
-
 function mouseTrack(event) {
   if(fired === false){
     var cannonPosition = $('.cannon').offset();
